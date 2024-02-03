@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #161619;
+.body-bg {
+  @apply bg-bgColor;
+}
+
+.body-text {
+  @apply text-fontColor;
 }

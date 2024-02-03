@@ -6,6 +6,8 @@ import type {
 } from 'next';
 import { Open_Sans } from 'next/font/google';
 
+import { colors } from '@/utils/config';
+
 import StoreProvider from './StoreProvider';
 
 const APP_NAME = "ZeTT";
@@ -86,7 +88,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#161619",
+  themeColor: colors.BG_COLOR,
 };
 
 export default function RootLayout({
@@ -97,7 +99,9 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="ko">
-        <body className={sans.className}>{children}</body>
+        <body className={`body-bg body-text ${sans.className}`}>
+          {children}
+        </body>
       </html>
     </StoreProvider>
   );
