@@ -6,29 +6,27 @@ import type {
 } from 'next';
 import { Open_Sans } from 'next/font/google';
 
-import { colors } from '@/utils/config';
+import {
+  colors,
+  metadata_infos,
+} from '@/utils/config';
 
 import StoreProvider from './StoreProvider';
-
-const APP_NAME = "ZeTT";
-const APP_DEFAULT_TITLE = "Japan Traveller";
-const APP_TITLE_TEMPLATE = "%s - ZeTT";
-const APP_DESCRIPTION = "For All of Japan Traveller";
 
 const sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  applicationName: APP_NAME,
+  applicationName: metadata_infos.APP_NAME,
   title: {
-    default: APP_DEFAULT_TITLE,
-    template: APP_TITLE_TEMPLATE,
+    default: metadata_infos.APP_DEFAULT_TITLE,
+    template: metadata_infos.APP_TITLE_TEMPLATE,
   },
-  description: APP_DESCRIPTION,
+  description: metadata_infos.APP_DESCRIPTION,
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: APP_DEFAULT_TITLE,
+    title: metadata_infos.APP_DEFAULT_TITLE,
     startupImage: [
       {
         url: "/icons/splashscreens/iphone5_splash.png",
