@@ -6,6 +6,7 @@ import type {
 } from 'next';
 import { Open_Sans } from 'next/font/google';
 
+import AuthContext from '@/context/AuthContext';
 import {
   colors,
   metadata_infos,
@@ -95,12 +96,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="ko">
-        <body className={`body-bg body-text ${sans.className}`}>
-          {children}
-        </body>
-      </html>
-    </StoreProvider>
+    <html lang="ko">
+      <AuthContext>
+        <StoreProvider>
+          <body className={`body-bg body-text ${sans.className}`}>
+            {children}
+          </body>
+        </StoreProvider>
+      </AuthContext>
+    </html>
   );
 }
